@@ -31,15 +31,10 @@ class TestSumOfLastsFew(unittest.TestCase):
     def test_tail_size_one(self):
         self.assertEqual(get_sum_of_lasts_few(112, 1), 2)
 
-    def test_get_sum_of_lasts_few(self):
+    def test_sum_of_lasts_few(self):
         self.assertEqual(get_sum_of_lasts_few(112, 2), 3)
 
 
-"""
-to run from console try: python3 task_87.py n m
-where n is natural number, 
-m - number of digits to count the sum (from the end)
-"""
 if __name__ == "__main__":
     print(get_sum_of_lasts_few(66888, 5))
     unittest.main(verbosity=2)

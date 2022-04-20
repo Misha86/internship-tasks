@@ -9,7 +9,7 @@ def perfect_numbers(number):
 
 
 if __name__ == "__main__":
-    numb = 10000
+    numb = 1000
     print(perfect_numbers(numb))
 
 
