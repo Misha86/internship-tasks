@@ -4,7 +4,7 @@ import time
 
 def perfect_numbers(number: int) -> list[int]:
     """
-    Get perfect numbers in range(0, number)
+    Get perfect numbers in range(1, number)
 
     :param number: int
     :return: list[int]
