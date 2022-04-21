@@ -1,8 +1,15 @@
-# task 86a
-def count_digits(number):
+"""This module provides function to get digits length in the number."""
+
+
+def count_digits(number: int) -> int:
+    """
+    Get digits length in the number
+    :param number: int
+    :return: int
+    """
     return len(str(number))
 
 
 if __name__ == "__main__":
-    numb = 13456
-    print(count_digits(numb))
+    NUMBER = 13456
+    print(count_digits(NUMBER))
