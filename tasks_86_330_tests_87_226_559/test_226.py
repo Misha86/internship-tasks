@@ -28,20 +28,20 @@ class TestNaturalCommonMultiples(unittest.TestCase):
     """Tests for function get_sum_of_lasts_few."""
 
     def test_natural_common_multiples(self):
-        """Test checks the get_natural_common_multiples function correct result."""
+        """Test that get_natural_common_multiples function returns correct result."""
         self.assertListEqual(get_natural_common_multiples(5, 10), [10, 20, 30, 40])
 
     def test_one_of_args_is_zero(self):
-        """Test checks when one of args is zero."""
+        """Test when one of args is zero result is empty list."""
         self.assertListEqual(get_natural_common_multiples(0, 10), [])
         self.assertListEqual(get_natural_common_multiples(10, 0), [])
 
     def test_one_of_args_has_incorrect_type(self):
-        """Test checks when one of args has incorrect type."""
+        """Test when one of args is incorrect data type a TypeError exception is called."""
         self.assertRaises(TypeError, get_natural_common_multiples, "5", 10)
         self.assertRaises(TypeError, get_natural_common_multiples, 5, "10")
 
 
 if __name__ == "__main__":
-    # unittest.main(verbosity=2)
+    unittest.main(verbosity=2)
     print(get_natural_common_multiples(1, 10))

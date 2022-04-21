@@ -26,16 +26,16 @@ class TestSumOfLastsFew(unittest.TestCase):
     """Tests for function get_sum_of_lasts_few."""
 
     def test_target_arg_zero(self):
-        """Test checks when number is zero."""
+        """Test that number is zero a ValueError exception is called."""
         with self.assertRaises(ValueError):
             get_sum_of_lasts_few(0, 1)
 
     def test_tail_size_one(self):
-        """Test checks when tail size equal 1."""
+        """Test that tail size equal 1 returns last digit."""
         self.assertEqual(get_sum_of_lasts_few(112, 1), 2)
 
     def test_sum_of_lasts_few(self):
-        """Test checks the get_sum_of_lasts_few function correct result."""
+        """Test that get_sum_of_lasts_few function returns correct result."""
         self.assertEqual(get_sum_of_lasts_few(112, 2), 3)
 
 
