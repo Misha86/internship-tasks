@@ -13,8 +13,6 @@ def get_sum_of_lasts_few(target: int, tail_size: int) -> int:
     :param tail_size: int
     :return: int
     """
-    if tail_size > len(str(target)):
-        raise ValueError("Number tail size > number!")
     if target == 0:
         raise ValueError("Zero is not natural number!")
     if tail_size == 1:
@@ -32,11 +30,6 @@ class TestSumOfLastsFew(unittest.TestCase):
         with self.assertRaises(ValueError):
             get_sum_of_lasts_few(0, 1)
 
-    def test_tail_size(self):
-        """Test checks when tail size is more than number."""
-        with self.assertRaises(ValueError):
-            get_sum_of_lasts_few(1, 5)
-
     def test_tail_size_one(self):
         """Test checks when tail size equal 1."""
         self.assertEqual(get_sum_of_lasts_few(112, 1), 2)
@@ -48,4 +41,5 @@ class TestSumOfLastsFew(unittest.TestCase):
 
 if __name__ == "__main__":
     print(get_sum_of_lasts_few(66888, 5))
+    print(get_sum_of_lasts_few(1, 5))
     unittest.main(verbosity=2)
