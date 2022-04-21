@@ -1,5 +1,15 @@
-# task 330
-def perfect_numbers(number):
+"""This module provides function to get perfect numbers."""
+import time
+
+
+def perfect_numbers(number: int) -> list[int]:
+    """
+    Get perfect numbers in range(0, number)
+
+    :param number: int
+    :return: list[int]
+    """
+
     numbers = []
     for num in range(1, number):
         dividers = [div for div in range(1, int(num/2)+1) if num % div == 0]
@@ -9,7 +19,7 @@ def perfect_numbers(number):
 
 
 if __name__ == "__main__":
-    numb = 1000
-    print(perfect_numbers(numb))
-
-
+    NUMBER = 100000
+    start = time.time()
+    print(perfect_numbers(NUMBER))
+    print(time.time() - start)
