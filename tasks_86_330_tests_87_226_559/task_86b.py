@@ -1,3 +1,6 @@
+"""This module provides function to get digits sum in the number."""
+
+
 # task 86b
 def sum_digits(number: int) -> int:
     """
