@@ -7,6 +7,8 @@ def count_digits(number: int) -> int:
     :param number: int
     :return: int
     """
+    if not isinstance(number, int):
+        raise TypeError("Argument should be integer!")
     return len(str(number))
 
 
