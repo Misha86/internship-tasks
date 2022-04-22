@@ -28,7 +28,7 @@ def perfect_numbers(number: int) -> list[int]:
 
     result = [6, ]
 
-    for index in range(1, 100, 2):
+    for index in range(3, 100, 2):
         expect_simple_num = pow(2, index) - 1
         is_simple = check_simple_number(expect_simple_num)
         if is_simple:

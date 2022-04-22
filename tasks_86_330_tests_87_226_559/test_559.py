@@ -12,6 +12,9 @@ def sieve_of_eratosthenes(target: int) -> list[int]:
     :param target: int
     :return: list[int]
     """
+    if target == 0:
+        return []
+
     # an list of Bool vales to index numbers 2 to n (0 to n-2)
     sieve = [True] * (target - 1)
     # limit for loop
@@ -76,7 +79,7 @@ class TestMersenSequenceLimited(unittest.TestCase):
 
     def test_sieve_of_eratosthenesone_arg_is_zero(self):
         """Test when one of args is 0 result is empty list."""
-        self.assertListEqual(sieve_of_eratosthenes(0), [1]) #######
+        self.assertListEqual(sieve_of_eratosthenes(0), [])
 
     def test_get_mersen_sequence_limited_by_natural_number_arg_is_zero(self):
         """Test when one of args is 0 result is empty list."""
@@ -92,6 +95,6 @@ class TestMersenSequenceLimited(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    # unittest.main(verbosity=2)
+    unittest.main(verbosity=2)
     print(sieve_of_eratosthenes(10))
     print(get_mersen_sequence_limited_by_natural_number(10))
