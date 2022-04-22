@@ -1,4 +1,4 @@
-"""This module provides function to get digits length in the number."""
+"""This module consists of group tasks."""
 
 
 # task 86a
