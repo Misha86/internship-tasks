@@ -76,35 +76,37 @@ data_dict = {"86a": {"func": count_digits, "args_count": 1},
              }
 
 
-def main(tasks_dict: dict) -> None:
+def main(tasks_dict: dict) -> bool:
     """
     Get result from function executions
     :param tasks_dict: dict
-    :return: None
+    :return: bool
     """
-    task_number, task_args = "", ""
     task_number_message = "Input task`s number: "
     task_args_message = "Input args: "
 
-    while task_number not in tasks_dict.keys():
+    while True:
         task_number = input(task_number_message)
 
-        if task_number in tasks_dict.keys():
-            func_data = tasks_dict.get(task_number)
-            args_count = func_data.get('args_count')
-            args = ''
+        try:
+            func_data = tasks_dict[task_number]
+            args_count = func_data['args_count']
+        except KeyError:
+            task_number_message = "Input correct task`s number: "
+            continue
 
-            while not task_args.isnumeric() or len(args) != args_count:
-                task_args = input(task_args_message)
+        while True:
+            task_args = input(task_args_message)
+            args = task_args.split(' ')
+
+            try:
+                func = func_data["func"]
+                args = list(map(int, args))
+                print(f"\n{'*' * 20} Result: {func(*args)} {'*' * 20}")
+                return True
+            except (KeyError, ValueError, TypeError):
                 task_args_message = f"Input correct args. Count of args {args_count}: "
-                args = task_args.split(' ')
-
-                if task_args.isnumeric() and len(args) == args_count:
-                    func = func_data.get("func")
-                    args = list(map(int, args))
-                    print(f"\n{'*' * 20} Result: {func(*args)} {'*' * 20}")
-
-        task_number_message = "Input correct task`s number: "
+                continue
 
 
 if __name__ == "__main__":
