@@ -2,7 +2,7 @@
 
 
 # task 86a
-def count_digits(number: int) -> int:
+def task_86a(number: int) -> int:
     """
     Get digits length in the number
     :param number: int
@@ -16,7 +16,7 @@ def count_digits(number: int) -> int:
 
 
 # task 86b
-def sum_digits(number: int) -> int:
+def task_86b(number: int) -> int:
     """
     Get digits sum in the number
     :param number: int
@@ -45,7 +45,7 @@ def check_simple_number(number: int) -> bool:
 
 
 # task 330
-def perfect_numbers(number: int) -> list[int]:
+def task_330(number: int) -> list[int]:
     """
     Get perfect numbers in range(1, number)
     :param number: int
@@ -70,9 +70,93 @@ def perfect_numbers(number: int) -> list[int]:
     return result
 
 
-data_dict = {"86a": {"func": count_digits, "args_count": 1},
-             "86b": {"func": sum_digits, "args_count": 1},
-             "330": {"func": perfect_numbers, "args_count": 1},
+# cut & sum the digit from tail of target number a given number of times
+def get_sum_of_lasts_few(target: int, tail_size: int) -> int:
+    """
+    Get last digits sum in the target
+    :param target: int
+    :param tail_size: int
+    :return: int
+    """
+    if target == 0:
+        raise ValueError("Zero is not natural number!")
+    if tail_size == 1:
+        return target % 10
+    tail_size -= 1
+    return target % 10 + get_sum_of_lasts_few(target // 10, tail_size)
+
+
+# return all natural common multiples less than first_arg * second_arg
+def get_natural_common_multiples(first_arg: int, second_arg: int) -> list[int]:
+    """
+    Get natural common multiples
+    :param first_arg: int
+    :param second_arg: int
+    :return: list[int]
+    """
+    limit = first_arg * second_arg
+    suspect = second_arg
+    result = []
+    while suspect < limit:
+        if suspect % first_arg == 0:
+            result.append(suspect)
+        suspect += second_arg
+
+    return result
+
+
+def sieve_of_eratosthenes(target: int) -> list[int]:
+    """
+    Get sieve for Mersen sequence
+    :param target: int
+    :return: list[int]
+    """
+    if target == 0:
+        return []
+
+    # an list of Bool vales to index numbers 2 to n (0 to n-2)
+    sieve = [True] * (target - 1)
+    # limit for loop
+    limit = round(pow(target, 1 / 2))
+
+    # sieve numbers
+    for number in range(2, limit + 1):
+        if sieve[number - 2]:
+            for suspect in range(pow(number, 2), target + 1, number):
+                sieve[suspect - 2] = False
+
+    # get list of natural numbers
+    result = [1]
+    for pos, cell in enumerate(sieve):
+        if cell:
+            result.append(pos + 2)
+
+    return result
+
+
+# get (limited) Mersen sequence with simple indexes
+def get_mersen_sequence_limited_by_natural_number(limit: int) -> list[int]:
+    """
+    Get Mersen sequence limited by natural number
+    :param limit: int
+    :return: list[int]
+    """
+    result = []
+
+    sieve = sieve_of_eratosthenes(limit)
+
+    for natural_number in sieve:
+        mermen_candidate = pow(2, natural_number) - 1
+        if mermen_candidate >= limit:
+            break
+        result.append(mermen_candidate)
+
+    return result
+
+
+data_dict = {"86a": {"func": task_86a, "args_count": 1},
+             "86b": {"func": task_86b, "args_count": 1},
+             "330": {"func": task_330, "args_count": 1},
              }
 
 
