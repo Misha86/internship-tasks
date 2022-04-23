@@ -3,11 +3,7 @@ import time
 
 
 def check_simple_number(number: int) -> bool:
-    """
-    Check that number is simple
-    :param number: int
-    :return: bool
-    """
+    """ Check that number is simple. """
     counter = 0
     for i in range(1, int(number / 2) + 1):
         if counter > 2:
@@ -17,12 +13,8 @@ def check_simple_number(number: int) -> bool:
     return True if counter == 1 else False
 
 
-def perfect_numbers(number: int) -> list[int]:
-    """
-    Get perfect numbers in range(1, number)
-    :param number: int
-    :return: list[int]
-    """
+def task_330(number: int) -> list[int]:
+    """ Get perfect numbers in range(1, number). """
     if number <= 6:
         return []
 
@@ -42,5 +34,5 @@ def perfect_numbers(number: int) -> list[int]:
 if __name__ == "__main__":
     NUMBER = 100000000000
     start = time.time()
-    print(perfect_numbers(NUMBER))
+    print(task_330(NUMBER))
     print(time.time() - start)
