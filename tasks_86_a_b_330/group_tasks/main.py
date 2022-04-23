@@ -71,7 +71,7 @@ def task_330(number: int) -> list[int]:
 
 
 # cut & sum the digit from tail of target number a given number of times
-def get_sum_of_lasts_few(target: int, tail_size: int) -> int:
+def task_87(target: int, tail_size: int) -> int:
     """
     Get last digits sum in the target
     :param target: int
@@ -83,11 +83,11 @@ def get_sum_of_lasts_few(target: int, tail_size: int) -> int:
     if tail_size == 1:
         return target % 10
     tail_size -= 1
-    return target % 10 + get_sum_of_lasts_few(target // 10, tail_size)
+    return target % 10 + task_87(target // 10, tail_size)
 
 
 # return all natural common multiples less than first_arg * second_arg
-def get_natural_common_multiples(first_arg: int, second_arg: int) -> list[int]:
+def task_226(first_arg: int, second_arg: int) -> list[int]:
     """
     Get natural common multiples
     :param first_arg: int
@@ -135,7 +135,7 @@ def sieve_of_eratosthenes(target: int) -> list[int]:
 
 
 # get (limited) Mersen sequence with simple indexes
-def get_mersen_sequence_limited_by_natural_number(limit: int) -> list[int]:
+def task_559(limit: int) -> list[int]:
     """
     Get Mersen sequence limited by natural number
     :param limit: int
