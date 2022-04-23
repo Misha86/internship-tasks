@@ -10,10 +10,12 @@ def count_digits(number: int) -> int:
     """
     if not isinstance(number, int):
         raise TypeError("Argument should be integer!")
+    if number <= 0:
+        raise ValueError("Argument is not natural number!")
     return len(str(number))
 
 
-#task 86b
+# task 86b
 def sum_digits(number: int) -> int:
     """
     Get digits sum in the number
@@ -22,6 +24,8 @@ def sum_digits(number: int) -> int:
     """
     if not isinstance(number, int):
         raise TypeError("Argument should be integer!")
+    if number <= 0:
+        raise ValueError("Argument is not natural number!")
     return sum([int(num) for num in str(number)])
 
 
@@ -47,6 +51,9 @@ def perfect_numbers(number: int) -> list[int]:
     :param number: int
     :return: list[int]
     """
+    if number <= 0:
+        raise ValueError("Argument is not natural number!")
+
     if number <= 6:
         return []
 
