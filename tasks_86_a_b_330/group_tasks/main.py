@@ -177,6 +177,7 @@ def main(tasks_dict: dict) -> bool:
     :param tasks_dict: dict
     :return: bool
     """
+    print(f"\n{'*-'*5} Available tasks: {list(tasks_dict.keys())} {'*-'*5}")
     task_number_message = "Input task`s number: "
     task_args_message = "Input args: "
 
