@@ -154,9 +154,20 @@ def task_559(limit: int) -> list[int]:
     return result
 
 
-data_dict = {"86a": {"func": task_86a, "args_count": 1},
-             "86b": {"func": task_86b, "args_count": 1},
-             "330": {"func": task_330, "args_count": 1},
+# data_dict = {"86a": {"func": task_86a, "args_count": 1},
+#              "86b": {"func": task_86b, "args_count": 1},
+#              "330": {"func": task_330, "args_count": 1},
+#              "87": {"func": task_87, "args_count": 2},
+#              "226": {"func": task_226, "args_count": 2},
+#              "559": {"func": task_559, "args_count": 1},
+#              }
+
+data_dict = {"86a": task_86a,
+             "86b": task_86b,
+             "330":  task_330,
+             "87": task_87,
+             "226": task_226,
+             "559": task_559
              }
 
 
@@ -173,10 +184,9 @@ def main(tasks_dict: dict) -> bool:
         task_number = input(task_number_message)
 
         try:
-            func_data = tasks_dict[task_number]
-            args_count = func_data['args_count']
-        except KeyError:
-            task_number_message = "Input correct task`s number: "
+            func = tasks_dict[task_number]
+        except KeyError as ex:
+            task_number_message = f"Input correct task`s number, task {ex} does not exist: "
             continue
 
         while True:
@@ -184,12 +194,11 @@ def main(tasks_dict: dict) -> bool:
             args = task_args.split(' ')
 
             try:
-                func = func_data["func"]
                 args = list(map(int, args))
                 print(f"\n{'*' * 20} Result: {func(*args)} {'*' * 20}")
                 return True
-            except (KeyError, ValueError, TypeError):
-                task_args_message = f"Input correct args. Count of args {args_count}: "
+            except BaseException as ex:
+                task_args_message = f"Input correct args({type(ex).__name__}: {ex} : "
                 continue
 
 
