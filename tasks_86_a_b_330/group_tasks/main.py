@@ -192,14 +192,13 @@ def main(tasks_dict: dict) -> bool:
 
         while True:
             task_args = input(task_args_message)
-            args = task_args.split(' ')
 
             try:
-                args = list(map(int, args))
+                args = list(map(int, task_args.split(' ')))
                 print(f"\n{'*' * 20} Result: {func(*args)} {'*' * 20}")
                 return True
             except BaseException as ex:
-                task_args_message = f"Input correct args({type(ex).__name__}: {ex} : "
+                task_args_message = f"Input correct args({type(ex).__name__}: {ex}): "
                 continue
 
 
