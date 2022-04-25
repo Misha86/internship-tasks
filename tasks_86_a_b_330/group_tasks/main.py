@@ -181,8 +181,7 @@ def main(tasks_dict: dict) -> bool:
         task_number = input(task_number_message)
 
         try:
-            func = next(data_dict[key] for key in data_dict.keys()
-                        if task_number and task_number in key and key.startswith('task_'))
+            func = next(data_dict[key] for key in data_dict.keys() if key == 'task_' + task_number)
 
         except StopIteration:
             task_number_message = f"Input correct task`s number, task '{task_number}' does not exist: "
