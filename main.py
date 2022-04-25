@@ -1,4 +1,4 @@
-"""This module consists of group tasks."""
+""" This module consists of one function that run my tasks. """
 import inspect
 import sys
 import types
