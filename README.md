@@ -1,5 +1,5 @@
 # internship-tasks
-### For check tasks need to start main.py
+### For run tasks need to start main.py
 ```shell
 $ python3 -m  main
 ```
