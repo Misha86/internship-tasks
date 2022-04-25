@@ -4,10 +4,7 @@
 # cut & sum the digit from tail of target number a given number of times
 def task_87(target: int, tail_size: int) -> int:
     """
-    Get last digits sum in the target
-    :param target: int
-    :param tail_size: int
-    :return: int
+    Get last digits sum in the target.
     """
     if target == 0:
         raise ValueError("Zero is not natural number!")

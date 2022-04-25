@@ -3,9 +3,7 @@
 
 def sieve_of_eratosthenes(target: int) -> list[int]:
     """
-    Get sieve for Mersen sequence
-    :param target: int
-    :return: list[int]
+    Get sieve for Mersen sequence.
     """
     if target == 0:
         return []
@@ -34,8 +32,6 @@ def sieve_of_eratosthenes(target: int) -> list[int]:
 def task_559(limit: int) -> list[int]:
     """
     Get Mersen sequence limited by natural number
-    :param limit: int
-    :return: list[int]
     """
     result = []
 
