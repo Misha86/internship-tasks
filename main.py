@@ -3,7 +3,7 @@ import inspect
 import sys
 import types
 
-from tasks_86_a_b_330 import (task_86a, task_86b, task_330)
+from tasks import (task_86a, task_86b, task_330)
 
 data_dict = locals()
 
